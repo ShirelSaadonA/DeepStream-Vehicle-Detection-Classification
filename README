@@ -1,1 +1,43 @@
+# DeepStream Vehicle and Pedestrian Detection & Classification
+
+This project leverages NVIDIA DeepStream on the Jetson Nano to perform real-time detection and classification of vehicles, pedestrians, traffic signs, and bicycles. The application also categorizes detected vehicles by type using dedicated secondary models.
+
+## Objective
+- Detect and classify vehicles, pedestrians, traffic signs, and bicycles.
+- Classify vehicles by type (e.g., SUV, sedan) using NVIDIA DeepStream.
+
+## Models Used
+
+### 1. Primary GIE (PGIE) Model
+- **Model**: ResNet10
+- **Labels**: Car, Bicycle, Person, RoadSign
+- **Configuration Details**:
+  - **Network Mode**: INT8
+  - **Batch Size**: 1
+
+### 2. Secondary GIEs (SGIE) Model
+- **Purpose**: Vehicle Type Classification
+- **Model**: ResNet18
+- **Labels**: Coupe, Large Vehicle, Sedan, SUV, Truck, Van
+- **Configuration Details**:
+  - **Network Mode**: INT8
+  - **Batch Size**: 16
+
+## Interface
+The application interface displays the processed video on-screen, showing detected objects in real-time.
+
+## Summary of Features
+This DeepStream pipeline processes post-tracking metadata, iterating through tracked objects and outputting key information, including:
+
+- **Object Identifiers**: Unique IDs for each object
+- **Object Types**: Class labels such as vehicle or pedestrian
+- **Object Locations**: Bounding box coordinates
+- **Confidence Levels**: Confidence scores for each detected object
+
+## Requirements
+- **Hardware**: NVIDIA Jetson Nano
+- **Software**: DeepStream SDK 6.0, Python 3.x
+
+
+
 python3 deepstream_test_shirel.py /home/shirel/streams/sample_qHD.h264
