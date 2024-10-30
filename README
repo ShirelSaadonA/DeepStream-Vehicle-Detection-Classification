@@ -38,6 +38,11 @@ This DeepStream pipeline processes post-tracking metadata, iterating through tra
 - **Hardware**: NVIDIA Jetson Nano
 - **Software**: DeepStream SDK 6.0, Python 3.x
 
-
-
 python3 deepstream_test_shirel.py /home/shirel/streams/sample_qHD.h264
+
+
+
+MIT License
+Copyright (c) [2024] [Shirel Saadon]
+
+
