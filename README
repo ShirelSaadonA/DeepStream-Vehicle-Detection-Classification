@@ -35,14 +35,30 @@ This DeepStream pipeline processes post-tracking metadata, iterating through tra
 - **Confidence Levels**: Confidence scores for each detected object
 
 ## Requirements
-- **Hardware**: NVIDIA Jetson Nano
-- **Software**: DeepStream SDK 6.0, Python 3.x
-
-python3 deepstream_test_shirel.py /home/shirel/streams/sample_qHD.h264
-
+- Hardware**: NVIDIA Jetson Nano
+- Software**: DeepStream SDK 6.0, Python 3.6
+- Gst-python
 
 
-MIT License
+
+## Run the app
+
+To run the test app:
+  $ python3 deepstream_test_2.py <h264_elementary_stream> <0/1>
+
+To get the past-frame tracking meta use 1, otherwise 0, this argument is optional.
+
+  $ python3 deepstream_test_shirel.py /home/shirel/streams/sample_qHD.h264 1 
+
+
+
+To get the past-frame-tracking meta, the following changes have to be added to
+the dstest2_tracker_config.txt. 
+
+1. ll-lib-file=/opt/nvidia/deepstream/deepstream-6.0/lib/libnvds_nvdcf.so
+2. ll-config-file=tracker_config.yml
+3. enable-past-frame=1
+
+## MIT License
 Copyright (c) [2024] [Shirel Saadon]
-
 
